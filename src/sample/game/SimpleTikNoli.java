@@ -31,6 +31,8 @@ public class SimpleTikNoli implements TikNoli {
 
         
 
+
+
         if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
             countTick++;
         }
