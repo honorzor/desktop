@@ -27,6 +27,8 @@ public class SimpleTikNoli implements TikNoli {
 
     private void tableStat(){
         switchValue();
+
+
         
 
         if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
