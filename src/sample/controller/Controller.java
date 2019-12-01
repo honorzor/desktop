@@ -28,6 +28,9 @@ public class Controller {
     @FXML
     public TextField textField9;
 
+    @FXML
+    private TextField winnersTable;
+
     private List<TextField> allFields;
 
     private TikNoli tikNoli;
@@ -36,7 +39,7 @@ public class Controller {
         allFields = Arrays.asList(textField1, textField2, textField3,
                 textField4, textField5, textField6,
                 textField7, textField8, textField9);
-        this.tikNoli = new SimpleTikNoli(allFields);
+        this.tikNoli = new SimpleTikNoli(allFields, winnersTable);
         this.tikNoli.start();
     }
 }

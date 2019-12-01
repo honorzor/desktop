@@ -9,6 +9,8 @@ import sample.util.Checker;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.lang.String.format;
+
 public class SimpleTikNoli implements TikNoli {
     public final static String TIC = "X";
     public final static String NOLI = "0";
@@ -18,18 +20,35 @@ public class SimpleTikNoli implements TikNoli {
     private final static String drawMessage = "Ничья, ходов не осталось!";
     private static TickOrNoli lastStep = TickOrNoli.Tik;
     private final List<TextField> allFields;
+    private final TextField winnersTable;
     private final Checker checker;
+    private static int countTick = 0;
+    private static int countNoil = 0;
 
+    private void tableStat(){
+        switchValue();
 
-    public void showLastStep(){
-        String value = lastStep.getValue();
-        System.out.println(value);
+        if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
+            countTick++;
+        }
+        if (lastStep.getValue().equals(SimpleTikNoli.NOLI)) {
+            countNoil++;
+        }
+        appendToWinnersTable(format("Tick(X) won %s times, Noil(0) won %s times", countTick, countNoil));
+    }
+    private void showLastStep() {
+        System.out.println(lastStep.getValue());
+    }
+
+    private void appendToWinnersTable(String msg){
+        this.winnersTable.clear();
+        this.winnersTable.setText(msg);
     }
 
 
-
-    public SimpleTikNoli(List<TextField> allFields) {
+    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable) {
         this.allFields = allFields;
+        this.winnersTable = winnersTable;
         this.checker = new Checker(allFields);
     }
 
@@ -62,6 +81,7 @@ public class SimpleTikNoli implements TikNoli {
                 if (checker.checkWinner()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, victoryMessage);
+                    tableStat();
                 }
                 if (!hasAction()) {
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, drawMessage);
