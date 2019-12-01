@@ -21,7 +21,7 @@ public class SimpleTikNoli implements TikNoli {
     private final Checker checker;
 
 
-    private void showLastStep(){
+    public void showLastStep(){
         String value = lastStep.getValue();
         System.out.println(value);
     }
