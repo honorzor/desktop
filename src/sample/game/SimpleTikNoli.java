@@ -33,7 +33,7 @@ public class SimpleTikNoli implements TikNoli {
         if (lastStep.getValue().equals(SimpleTikNoli.NOLI)) {
             countNoil++;
         }
-        System.out.println(format("X won %s times, O won %s times", countTick, countNoil));
+        System.out.println(format("Tick(X) won %s times, Noil(0) won %s times", countTick, countNoil));
     }
     private void showLastStep() {
         System.out.println(lastStep.getValue());
