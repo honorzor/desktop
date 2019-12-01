@@ -12,6 +12,7 @@ public class Checker {
 
 
     public Checker(List<TextField> textFields) {
+
         this.linesList = Arrays.asList(
                 Arrays.asList(textFields.get(0), textFields.get(1), textFields.get(2)),
                 Arrays.asList(textFields.get(3), textFields.get(4), textFields.get(5)),
