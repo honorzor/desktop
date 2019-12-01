@@ -21,6 +21,13 @@ public class SimpleTikNoli implements TikNoli {
     private final Checker checker;
 
 
+    public void showLastStep (){
+        String value = lastStep.getValue();
+        System.out.println(value);
+    }
+
+
+
     public SimpleTikNoli(List<TextField> allFields) {
         this.allFields = allFields;
         this.checker = new Checker(allFields);
@@ -47,6 +54,7 @@ public class SimpleTikNoli implements TikNoli {
                     return;
                 }
                 textField.setText(lastStep.getValue());
+                showLastStep();
                 switchValue();
                 if (allFieldsIsNotEmpty()) {
                     clear();
