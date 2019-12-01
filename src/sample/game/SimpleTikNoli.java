@@ -19,13 +19,24 @@ public class SimpleTikNoli implements TikNoli {
     private static TickOrNoli lastStep = TickOrNoli.Tik;
     private final List<TextField> allFields;
     private final Checker checker;
+    private int countTick = 0;
+    private int countNoil = 0;
 
-
-    public void showLastStep(){
+    public void tableStat(){
+        switchValue();
+        if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
+            countTick++;
+            System.out.println("Winner - " + lastStep.getValue() + "-" +countTick);
+        }
+        if (lastStep.getValue().equals(SimpleTikNoli.NOLI)) {
+            countNoil++;
+            System.out.println("Winner - " + lastStep.getValue()+ "-" + countNoil);
+        }
+    }
+    public void showLastStep() {
         String value = lastStep.getValue();
         System.out.println(value);
     }
-
 
 
     public SimpleTikNoli(List<TextField> allFields) {
@@ -62,6 +73,7 @@ public class SimpleTikNoli implements TikNoli {
                 if (checker.checkWinner()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, victoryMessage);
+                    tableStat();
                 }
                 if (!hasAction()) {
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, drawMessage);
