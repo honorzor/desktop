@@ -9,6 +9,8 @@ import sample.util.Checker;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.lang.String.format;
+
 public class SimpleTikNoli implements TikNoli {
     public final static String TIC = "X";
     public final static String NOLI = "0";
@@ -19,23 +21,22 @@ public class SimpleTikNoli implements TikNoli {
     private static TickOrNoli lastStep = TickOrNoli.Tik;
     private final List<TextField> allFields;
     private final Checker checker;
-    private int countTick = 0;
-    private int countNoil = 0;
+    private static int countTick = 0;
+    private static int countNoil = 0;
 
-    public void tableStat(){
+    private void tableStat(){
         switchValue();
+
         if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
             countTick++;
-            System.out.println("Winner - " + lastStep.getValue() + "-" +countTick);
         }
         if (lastStep.getValue().equals(SimpleTikNoli.NOLI)) {
             countNoil++;
-            System.out.println("Winner - " + lastStep.getValue()+ "-" + countNoil);
         }
+        System.out.println(format("X won %s times, O won %s times", countTick, countNoil));
     }
-    public void showLastStep() {
-        String value = lastStep.getValue();
-        System.out.println(value);
+    private void showLastStep() {
+        System.out.println(lastStep.getValue());
     }
 
 
