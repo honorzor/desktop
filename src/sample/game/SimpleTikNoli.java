@@ -29,6 +29,8 @@ public class SimpleTikNoli implements TikNoli {
         switchValue();
         
 
+
+        
         if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
             countTick++;
         }
