@@ -19,6 +19,7 @@
             <TextField fx:id="textField5" layoutX="138.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
             <TextField fx:id="textField4" layoutX="8.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
             <TextField fx:id="textField2" layoutX="139.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="winnersTable" layoutX="29.0" layoutY="22.0" prefHeight="27.0" prefWidth="338.0" />
          </children>
       </Pane>
    </children>
