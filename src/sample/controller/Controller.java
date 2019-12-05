@@ -31,6 +31,9 @@ public class Controller {
     @FXML
     private TextField winnersTable;
 
+    @FXML
+    private TextField resetStat;
+
     private List<TextField> allFields;
 
     private TikNoli tikNoli;
@@ -39,7 +42,15 @@ public class Controller {
         allFields = Arrays.asList(textField1, textField2, textField3,
                 textField4, textField5, textField6,
                 textField7, textField8, textField9);
-        this.tikNoli = new SimpleTikNoli(allFields, winnersTable);
+        this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat);
         this.tikNoli.start();
+    }
+
+    public void setResetStat() {
+        SimpleTikNoli.setCountTick(0);
+        SimpleTikNoli.setCountNoil(0);
+        //Пытался сделать метод в пакете "game" , но в пакете fxml он его не видет,
+        // поэтому сделал так (Пиздец ор конечно хахаххах)
+        winnersTable.setText("Tick(X) won 0 times , Noil(0) won 0 times");
     }
 }

@@ -10,16 +10,17 @@
    <children>
       <Pane prefHeight="369.0" prefWidth="395.0">
          <children>
-            <TextField fx:id="textField1" layoutX="9.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField9" layoutX="267.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField8" layoutX="137.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField7" layoutX="6.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField3" layoutX="267.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField6" layoutX="267.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField5" layoutX="138.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField4" layoutX="8.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="textField2" layoutX="139.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
-            <TextField fx:id="winnersTable" layoutX="29.0" layoutY="22.0" prefHeight="27.0" prefWidth="338.0" />
+            <TextField fx:id="textField1" layoutX="9.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false" />
+            <TextField fx:id="textField9" layoutX="267.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false" />
+            <TextField fx:id="textField8" layoutX="137.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false" />
+            <TextField fx:id="textField7" layoutX="6.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false" />
+            <TextField fx:id="textField3" layoutX="267.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false" />
+            <TextField fx:id="textField6" layoutX="267.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false"/>
+            <TextField fx:id="textField5" layoutX="138.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false"/>
+            <TextField fx:id="textField4" layoutX="8.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false"/>
+            <TextField fx:id="textField2" layoutX="139.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" alignment="CENTER" editable="false"/>
+            <TextField fx:id="winnersTable" layoutX="29.0" layoutY="22.0" prefHeight="27.0" prefWidth="350.0" alignment="CENTER" editable="false" />
+            <TextField fx:id="resetStat" layoutX="50.0" layoutY="50.0" prefHeight="20.0" prefWidth="300.0" alignment="CENTER" editable="false" onMousePressed="#setResetStat" text="reset statistics" />
          </children>
       </Pane>
    </children>

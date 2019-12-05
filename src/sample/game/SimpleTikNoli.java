@@ -21,17 +21,21 @@ public class SimpleTikNoli implements TikNoli {
     private static TickOrNoli lastStep = TickOrNoli.Tik;
     private final List<TextField> allFields;
     private final TextField winnersTable;
+    private final TextField resetStat;
     private final Checker checker;
     private static int countTick = 0;
     private static int countNoil = 0;
 
-    private void tableStat(){
+    public static void setCountTick(int countTick) {
+        SimpleTikNoli.countTick = countTick;
+    }
+
+    public static void setCountNoil(int countNoil) {
+        SimpleTikNoli.countNoil = countNoil;
+    }
+
+    private void tableStat() {
         switchValue();
-
-
-        
-
-
 
         if (lastStep.getValue().equals(SimpleTikNoli.TIC)) {
             countTick++;
@@ -39,21 +43,22 @@ public class SimpleTikNoli implements TikNoli {
         if (lastStep.getValue().equals(SimpleTikNoli.NOLI)) {
             countNoil++;
         }
-        appendToWinnersTable(format("Tick(X) won %s times, Noil(0) won %s times", countTick, countNoil));
+        appendToWinnersTable(format("Tick(X) won %s times , Noil(0) won %s times" ,countTick,countNoil));
     }
+
     private void showLastStep() {
         System.out.println(lastStep.getValue());
     }
 
-    private void appendToWinnersTable(String msg){
+    private void appendToWinnersTable(String msg) {
         this.winnersTable.clear();
         this.winnersTable.setText(msg);
     }
 
-
-    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable) {
+    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, TextField resetStat) {
         this.allFields = allFields;
         this.winnersTable = winnersTable;
+        this.resetStat = resetStat;
         this.checker = new Checker(allFields);
     }
 
@@ -89,8 +94,10 @@ public class SimpleTikNoli implements TikNoli {
                     tableStat();
                 }
                 if (!hasAction()) {
-                    AlertUtil.showAlert(Alert.AlertType.INFORMATION, drawMessage);
                     clear();
+                    AlertUtil.showAlert(Alert.AlertType.INFORMATION, drawMessage);
+                    tableStat();
+
                 }
             });
         }
