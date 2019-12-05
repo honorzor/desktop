@@ -18,6 +18,7 @@ public class SimpleTikNoli implements TikNoli {
     private final static String emptyCell = "";
     private final static String victoryMessage = "Победа!";
     private final static String drawMessage = "Ничья, ходов не осталось!";
+
     private static TickOrNoli lastStep = TickOrNoli.Tik;
     private final List<TextField> allFields;
     private final TextField winnersTable;
@@ -25,13 +26,14 @@ public class SimpleTikNoli implements TikNoli {
     private final Checker checker;
     private static int countTick = 0;
     private static int countNoil = 0;
+    private static final String statMsg = "Tick(X) won %s times , Noil(0) won %s times";
 
-    public static void setCountTick(int countTick) {
-        SimpleTikNoli.countTick = countTick;
-    }
 
-    public static void setCountNoil(int countNoil) {
-        SimpleTikNoli.countNoil = countNoil;
+    @Override
+    public void resetStat() {
+        countTick = 0;
+        countNoil = 0;
+        appendToWinnersTable(format(statMsg, countNoil, countNoil));
     }
 
     private void tableStat() {
@@ -43,7 +45,7 @@ public class SimpleTikNoli implements TikNoli {
         if (lastStep.getValue().equals(SimpleTikNoli.NOLI)) {
             countNoil++;
         }
-        appendToWinnersTable(format("Tick(X) won %s times , Noil(0) won %s times" ,countTick,countNoil));
+        appendToWinnersTable(format(statMsg, countTick, countNoil));
     }
 
     private void showLastStep() {

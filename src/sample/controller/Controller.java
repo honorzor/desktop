@@ -47,10 +47,6 @@ public class Controller {
     }
 
     public void setResetStat() {
-        SimpleTikNoli.setCountTick(0);
-        SimpleTikNoli.setCountNoil(0);
-        //Пытался сделать метод в пакете "game" , но в пакете fxml он его не видет,
-        // поэтому сделал так (Пиздец ор конечно хахаххах)
-        winnersTable.setText("Tick(X) won 0 times , Noil(0) won 0 times");
+        tikNoli.resetStat();
     }
 }
