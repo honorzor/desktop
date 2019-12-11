@@ -2,6 +2,7 @@ package sample.game;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import sample.enums.TickOrNoli;
@@ -33,11 +34,9 @@ public class SimpleTikNoli implements TikNoli {
 
 
     public void soundEffect(){
-        String ssound = "src/effect.mp3";
-        Media sound = new Media(new File(ssound).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.stop();
-        mediaPlayer.play();
+        AudioClip audioClip = new AudioClip("file:src/eff.mp3");
+        audioClip.stop();
+        audioClip.play();
     }
 
 
