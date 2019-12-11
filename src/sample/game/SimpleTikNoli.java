@@ -2,10 +2,13 @@ package sample.game;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import sample.enums.TickOrNoli;
 import sample.util.AlertUtil;
-import sample.util.Checker;
+import sample.util.SimpleChecker;
 
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,10 +26,26 @@ public class SimpleTikNoli implements TikNoli {
     private final List<TextField> allFields;
     private final TextField winnersTable;
     private final TextField resetStat;
-    private final Checker checker;
+    private final SimpleChecker simpleChecker;
     private static int countTick = 0;
     private static int countNoil = 0;
     private static final String statMsg = "Tick(X) won %s times , Noil(0) won %s times";
+
+
+    public void soundEffect(){
+        String ssound = "src/effect.mp3";
+        Media sound = new Media(new File(ssound).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.stop();
+        mediaPlayer.play();
+    }
+
+
+    private void clearCell (){
+        for (TextField textField : allFields){
+            textField.setStyle("-fx-background-color: white");
+        }
+    }
 
 
     @Override
@@ -61,7 +80,7 @@ public class SimpleTikNoli implements TikNoli {
         this.allFields = allFields;
         this.winnersTable = winnersTable;
         this.resetStat = resetStat;
-        this.checker = new Checker(allFields);
+        this.simpleChecker = new SimpleChecker(allFields);
     }
 
     @Override
@@ -81,25 +100,30 @@ public class SimpleTikNoli implements TikNoli {
     private void addAllListeners() {
         for (TextField textField : allFields) {
             textField.setOnMouseClicked(event -> {
+                textField.setStyle("-fx-background-color: gray");
                 if (!textField.getText().isEmpty()) {
                     return;
                 }
                 textField.setText(lastStep.getValue());
                 showLastStep();
                 switchValue();
+
                 if (allFieldsIsNotEmpty()) {
                     clear();
+                    clearCell();
                 }
-                if (checker.checkWinner()) {
+                if (simpleChecker.checkWinner()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, victoryMessage);
                     tableStat();
+                    clearCell();
+
                 }
                 if (!hasAction()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, drawMessage);
                     tableStat();
-
+                    clearCell();
                 }
             });
         }
@@ -114,6 +138,7 @@ public class SimpleTikNoli implements TikNoli {
 
 
     private boolean hasAction() {
+        soundEffect();
         if (allFields.size() >= 5) {
             final List<TextField> emptyCell = allFields
                     .stream()
@@ -123,11 +148,11 @@ public class SimpleTikNoli implements TikNoli {
             for (TextField textField : emptyCell) {
                 textField.setText(TIC);
             }
-            boolean tickCheck = checker.checkWinner();
+            boolean tickCheck = simpleChecker.checkWinner();
             for (TextField textField : emptyCell) {
                 textField.setText(NOLI);
             }
-            boolean noliChek = checker.checkWinner();
+            boolean noliChek = simpleChecker.checkWinner();
 
             for (TextField textField : emptyCell) {
                 textField.setText(SimpleTikNoli.emptyCell);
