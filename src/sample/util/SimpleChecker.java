@@ -1,7 +1,7 @@
 package sample.util;
 
 import javafx.scene.control.TextField;
-import sample.game.SimpleTikNoli;
+import sample.enums.MoveType;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,14 +34,14 @@ public class SimpleChecker implements Checker {
     }
 
     private boolean checkLine(List<TextField> textFields) {
-        final boolean x = isX(textFields, SimpleTikNoli.TIC);
-        final boolean o = isX(textFields, SimpleTikNoli.NOLI);
+        final boolean x = isX(textFields, MoveType.Tik);
+        final boolean o = isX(textFields, MoveType.Noli);
         return x || o;
     }
 
-    private boolean isX(List<TextField> textFields, String tic) {
+    private boolean isX(List<TextField> textFields, MoveType moveType) {
         return textFields
                 .stream()
-                .allMatch(textField -> textField.getText().equals(tic));
+                .allMatch(textField -> textField.getText().equals(moveType.getValue()));
     }
 }

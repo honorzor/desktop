@@ -2,12 +2,11 @@ package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import sample.game.SimpleTikNoli;
 import sample.game.TikNoli;
+import sample.util.Checker;
+import sample.util.SimpleChecker;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,15 +36,15 @@ public class Controller {
     @FXML
     private TextField resetStat;
 
-    private List<TextField> allFields;
-
     private TikNoli tikNoli;
 
     public void initialize() {
-        allFields = Arrays.asList(textField1, textField2, textField3,
+        final List<TextField> allFields = Arrays.asList(textField1, textField2, textField3,
                 textField4, textField5, textField6,
                 textField7, textField8, textField9);
-        this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat);
+
+        final Checker checker = new SimpleChecker(allFields);
+        this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat, checker);
         this.tikNoli.start();
     }
 
