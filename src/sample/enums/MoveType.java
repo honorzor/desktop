@@ -1,13 +1,13 @@
 package sample.enums;
 
-public enum  TickOrNoli {
+public enum MoveType {
 
     Tik("X"),
     Noli("0");
 
     private String value;
 
-    TickOrNoli(String value) {
+    MoveType(String value) {
         this.value = value;
     }
 
