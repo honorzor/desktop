@@ -1,11 +1,11 @@
-package sample.controller;
+package com.tic.noli.game.controller;
 
+import com.tic.noli.game.game.SimpleTikNoli;
+import com.tic.noli.game.game.TikNoli;
+import com.tic.noli.game.util.Checker;
+import com.tic.noli.game.util.SimpleChecker;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import sample.game.SimpleTikNoli;
-import sample.game.TikNoli;
-import sample.util.Checker;
-import sample.util.SimpleChecker;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package sample.util;
+package com.tic.noli.game.util;
 
 import javafx.scene.control.Alert;
 

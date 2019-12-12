@@ -1,4 +1,4 @@
-package sample.game;
+package com.tic.noli.game.game;
 
 public class FourTikNoil implements TikNoli {
     @Override

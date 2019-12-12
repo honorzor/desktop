@@ -1,7 +1,8 @@
-package sample.util;
+package com.tic.noli.game.util;
 
+import com.tic.noli.game.enums.MoveType;
 import javafx.scene.control.TextField;
-import sample.enums.MoveType;
+
 
 import java.util.Arrays;
 import java.util.List;

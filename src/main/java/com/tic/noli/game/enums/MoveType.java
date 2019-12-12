@@ -1,4 +1,4 @@
-package sample.enums;
+package com.tic.noli.game.enums;
 
 public enum MoveType {
 

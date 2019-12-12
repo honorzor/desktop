@@ -1,11 +1,12 @@
-package sample.game;
+package com.tic.noli.game.game;
 
+import com.tic.noli.game.enums.MoveType;
+import com.tic.noli.game.util.AlertUtil;
+import com.tic.noli.game.util.Checker;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.media.AudioClip;
-import sample.enums.MoveType;
-import sample.util.AlertUtil;
-import sample.util.Checker;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ public class SimpleTikNoli implements TikNoli {
     private final static MoveType NOLI = MoveType.Noli;
     private final static String EMPTY_CELL = "";
     private final static String VICTORY_MSG = "Победа!";
-    private final static String PATH_TO_SOUND = "file:src/eff.mp3";
+    private final static String PATH_TO_SOUND = "file:src/main/resources/sound/eff.mp3";
     private final static String DRAW_MSG = "Ничья, ходов не осталось!";
     private final static String STAT_MSG = "Tick(X) won %s times , Noil(0) won %s times";
     private final static String GREY_BACKGROUND = "-fx-background-color: gray";
@@ -89,7 +90,7 @@ public class SimpleTikNoli implements TikNoli {
     }
 
     private void switchValue() {
-        lastStep = lastStep == MoveType.Tik ? MoveType.Noli : MoveType.Tik;
+        lastStep = lastStep == MoveType.Tik ? MoveType.Noli :MoveType.Tik;
     }
 
     private void addAllListeners() {
