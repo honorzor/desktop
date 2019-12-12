@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tic.noli.game.controller.Controller">
+   <children>
+      <Pane prefHeight="369.0" prefWidth="395.0">
+         <children>
+            <TextField fx:id="textField1" alignment="CENTER" editable="false" layoutX="9.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField9" alignment="CENTER" editable="false" layoutX="267.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField8" alignment="CENTER" editable="false" layoutX="137.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField7" alignment="CENTER" editable="false" layoutX="6.0" layoutY="262.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField3" alignment="CENTER" editable="false" layoutX="267.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField6" alignment="CENTER" editable="false" layoutX="267.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField5" alignment="CENTER" editable="false" layoutX="138.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField4" alignment="CENTER" editable="false" layoutX="8.0" layoutY="172.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="textField2" alignment="CENTER" editable="false" layoutX="139.0" layoutY="87.0" prefHeight="60.0" prefWidth="123.0" />
+            <TextField fx:id="winnersTable" alignment="CENTER" editable="false" layoutX="29.0" layoutY="22.0" prefHeight="27.0" prefWidth="350.0" />
+            <TextField fx:id="resetStat" alignment="CENTER" editable="false" layoutX="50.0" layoutY="50.0" onMousePressed="#setResetStat" prefHeight="26.0" prefWidth="141.0" text="reset statistics" />
+         </children>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
