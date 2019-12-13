@@ -82,6 +82,7 @@ public class SimpleTikNoli implements TikNoli {
     @Override
     public void start() {
         addAllListeners();
+        appendToWinnersTable(STAT_MSG);
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class ViewManager {
     private static ViewManager viewManager = null;
+    private static String TITTLE_NAME = "Tic-Noil";
 
     private ViewManager() {
     }
@@ -28,7 +29,7 @@ public class ViewManager {
     public void show(String path, Stage stage) {
         try {
             final Parent root = FXMLLoader.load(getClass().getResource(path));
-            stage.setTitle("Tic-Noil");
+            stage.setTitle(TITTLE_NAME);
             stage.setScene(new Scene(root, 800, 400));
             stage.show();
             this.lastStage = stage;
