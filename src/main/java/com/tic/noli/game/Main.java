@@ -1,5 +1,7 @@
 package com.tic.noli.game;
 
+import com.tic.noli.game.enums.ViewPath;
+import com.tic.noli.game.managaer.ViewManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,10 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        primaryStage.setTitle("Tic-Noil");
-        primaryStage.setScene(new Scene(root, 800, 400));
-        primaryStage.show();
+        ViewManager.getInstance().show(ViewPath.VIEW_PATH.getPath(), new Stage());
         exitListener(primaryStage);
     }
 

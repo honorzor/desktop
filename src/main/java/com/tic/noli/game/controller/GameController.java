@@ -1,16 +1,22 @@
 package com.tic.noli.game.controller;
 
+import com.tic.noli.game.enums.ViewPath;
 import com.tic.noli.game.game.SimpleTikNoli;
 import com.tic.noli.game.game.TikNoli;
+import com.tic.noli.game.managaer.ViewManager;
 import com.tic.noli.game.util.Checker;
 import com.tic.noli.game.util.SimpleChecker;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Controller {
+public class GameController {
     @FXML
     public TextField textField1;
     @FXML
@@ -36,6 +42,9 @@ public class Controller {
     @FXML
     private TextField resetStat;
 
+    @FXML
+    private Button back;
+
     private TikNoli tikNoli;
 
     public void initialize() {
@@ -44,11 +53,19 @@ public class Controller {
                 textField7, textField8, textField9);
 
         final Checker checker = new SimpleChecker(allFields);
+        backListener();
         this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat, checker);
         this.tikNoli.start();
     }
 
     public void setResetStat() {
         tikNoli.resetStat();
+    }
+
+    private void backListener(){
+        back.setOnMouseClicked(event -> {
+            System.out.println("asdas");
+            ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH.getPath(), new Stage());
+        });
     }
 }
