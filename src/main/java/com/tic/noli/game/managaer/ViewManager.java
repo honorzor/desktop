@@ -10,19 +10,22 @@ import java.io.IOException;
 public class ViewManager {
     private static ViewManager viewManager = null;
 
-    private ViewManager(){}
+    private ViewManager() {
+    }
 
     private Stage lastStage = null;
 
-    public synchronized static ViewManager getInstance(){
-        if (viewManager == null){
-            viewManager = new ViewManager();
-            return viewManager;
+    public static ViewManager getInstance() {
+        if (viewManager == null) {
+            synchronized (ViewManager.class) {
+                viewManager = new ViewManager();
+                return viewManager;
+            }
         }
         return viewManager;
     }
 
-    public void show(String path, Stage stage){
+    public void show(String path, Stage stage) {
         try {
             final Parent root = FXMLLoader.load(getClass().getResource(path));
             stage.setTitle("Tic-Noil");
