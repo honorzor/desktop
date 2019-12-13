@@ -6,11 +6,9 @@ import com.tic.noli.game.game.TikNoli;
 import com.tic.noli.game.managaer.ViewManager;
 import com.tic.noli.game.util.Checker;
 import com.tic.noli.game.util.SimpleChecker;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
