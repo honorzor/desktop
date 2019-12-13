@@ -64,7 +64,6 @@ public class GameController {
 
     private void backListener(){
         back.setOnMouseClicked(event -> {
-            System.out.println("asdas");
             ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH.getPath(), new Stage());
         });
     }
