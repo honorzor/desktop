@@ -16,7 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        ViewManager.getInstance().show(ViewPath.VIEW_PATH.getPath(), new Stage());
+        ViewManager.getInstance()
+                .show(ViewPath.VIEW_PATH.getPath(), new Stage());
         exitListener(primaryStage);
     }
 

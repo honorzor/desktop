@@ -11,8 +11,10 @@ public class ViewController {
     @FXML
     private Button buttonSimpleGame;
 
-    public void initialize(){
-        buttonSimpleGame.setOnMouseClicked(event -> ViewManager.getInstance().showAndLastClose(ViewPath.GAME_PATH.getPath(), new Stage()));
+    public void initialize() {
+        buttonSimpleGame.setOnMouseClicked(event -> ViewManager
+                .getInstance()
+                .showAndLastClose(ViewPath.GAME_PATH.getPath(), new Stage()));
     }
 
 }

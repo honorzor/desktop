@@ -104,10 +104,6 @@ public class SimpleTikNoli implements TikNoli {
                 textField.setText(lastStep.getValue());
                 switchValue();
 
-                if (allFieldsIsNotEmpty()) {
-                    clear();
-                    clearCell();
-                }
                 if (checker.checkWinner()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
@@ -119,6 +115,11 @@ public class SimpleTikNoli implements TikNoli {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, DRAW_MSG);
                     tableStat();
+                    clearCell();
+                }
+
+                if (allFieldsIsNotEmpty()) {
+                    clear();
                     clearCell();
                 }
             });

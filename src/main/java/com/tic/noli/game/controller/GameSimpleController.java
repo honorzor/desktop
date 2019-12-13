@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.util.Arrays;
 import java.util.List;
 
-public class GameController {
+public class GameSimpleController {
     @FXML
     public TextField textField1;
     @FXML
