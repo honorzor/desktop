@@ -98,20 +98,26 @@ public class SimpleTikNoli implements TikNoli {
             textField.setOnMouseClicked(event -> {
 
                 if (!textField.getText().isEmpty()) {
-                    return;
+                    if (!checker.checkWinner()) {
+                        return;
+                    }
+                    AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
+                    tableStat();
+                    clearCell();
+                    switchValue();
                 }
 
                 textField.setStyle(GREY_BACKGROUND);
                 soundEffect();
                 textField.setText(lastStep.getValue());
-                switchValue();
 
+                switchValue();
                 if (checker.checkWinner()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
                     tableStat();
                     clearCell();
-
+                    switchValue();
                 }
                 if (!hasAction()) {
                     clear();

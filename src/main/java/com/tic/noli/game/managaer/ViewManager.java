@@ -2,7 +2,7 @@ package com.tic.noli.game.managaer;
 
 import com.tic.noli.game.cache.StageCache;
 import com.tic.noli.game.enums.ViewPath;
-import com.tic.noli.game.listeners.ExitListener;
+import com.tic.noli.game.listeners.StageExitListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -47,7 +47,7 @@ public class ViewManager {
             stage.setScene(scene);
             stage.show();
             stageCache.put(viewPath, stage);
-            new ExitListener(stage)
+            new StageExitListener(stage)
                     .start();
             return stage;
         } catch (IOException e) {
