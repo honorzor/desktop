@@ -14,7 +14,7 @@ public class ViewController {
     public void initialize() {
         buttonSimpleGame.setOnMouseClicked(event -> ViewManager
                 .getInstance()
-                .showAndLastClose(ViewPath.GAME_PATH.getPath(), new Stage()));
+                .showAndLastClose(ViewPath.GAME_PATH.getPath()));
     }
 
 }

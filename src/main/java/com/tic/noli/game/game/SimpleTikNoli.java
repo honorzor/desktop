@@ -2,7 +2,7 @@ package com.tic.noli.game.game;
 
 import com.tic.noli.game.enums.MoveType;
 import com.tic.noli.game.util.AlertUtil;
-import com.tic.noli.game.util.Checker;
+import com.tic.noli.game.service.Checker;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.media.AudioClip;

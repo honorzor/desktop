@@ -4,12 +4,11 @@ import com.tic.noli.game.enums.ViewPath;
 import com.tic.noli.game.game.SimpleTikNoli;
 import com.tic.noli.game.game.TikNoli;
 import com.tic.noli.game.managaer.ViewManager;
-import com.tic.noli.game.util.Checker;
-import com.tic.noli.game.util.SimpleChecker;
+import com.tic.noli.game.service.Checker;
+import com.tic.noli.game.service.SimpleCheckerService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -50,7 +49,7 @@ public class GameSimpleController {
                 textField4, textField5, textField6,
                 textField7, textField8, textField9);
 
-        final Checker checker = new SimpleChecker(allFields);
+        final Checker checker = new SimpleCheckerService(allFields);
         backListener();
         this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat, checker);
         this.tikNoli.start();
@@ -62,7 +61,7 @@ public class GameSimpleController {
 
     private void backListener(){
         back.setOnMouseClicked(event -> {
-            ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH.getPath(), new Stage());
+            ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH.getPath());
         });
     }
 }

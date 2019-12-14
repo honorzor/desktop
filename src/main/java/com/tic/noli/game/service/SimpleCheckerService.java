@@ -1,4 +1,4 @@
-package com.tic.noli.game.util;
+package com.tic.noli.game.service;
 
 import com.tic.noli.game.enums.MoveType;
 import javafx.scene.control.TextField;
@@ -7,12 +7,12 @@ import javafx.scene.control.TextField;
 import java.util.Arrays;
 import java.util.List;
 
-public class SimpleChecker implements Checker {
+public class SimpleCheckerService implements Checker {
 
     private final List<List<TextField>> linesList;
 
 
-    public SimpleChecker(List<TextField> textFields) {
+    public SimpleCheckerService(List<TextField> textFields) {
         this.linesList = Arrays.asList(
                 Arrays.asList(textFields.get(0), textFields.get(1), textFields.get(2)),
                 Arrays.asList(textFields.get(3), textFields.get(4), textFields.get(5)),
