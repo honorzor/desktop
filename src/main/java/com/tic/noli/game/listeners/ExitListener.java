@@ -9,6 +9,7 @@ public class ExitListener implements Listener {
 
     private final String message = "Are you sure that you want to exit?";
     private final Stage stage;
+    private boolean isEnable = true;
 
 
     public ExitListener(Stage stage) {
@@ -18,10 +19,12 @@ public class ExitListener implements Listener {
     @Override
     public void start() {
         stage.setOnCloseRequest(event -> {
-            if (!event.isConsumed()) {
-                final ButtonType buttonType = AlertUtil.showAndWaitAlert(Alert.AlertType.CONFIRMATION, message);
-                if (buttonType == ButtonType.CANCEL) {
-                    event.consume();
+            if (isEnable) {
+                if (!event.isConsumed()) {
+                    final ButtonType buttonType = AlertUtil.showAndWaitAlert(Alert.AlertType.CONFIRMATION, message);
+                    if (buttonType == ButtonType.CANCEL) {
+                        event.consume();
+                    }
                 }
             }
         });
@@ -29,6 +32,11 @@ public class ExitListener implements Listener {
 
     @Override
     public void stop() {
-        this.stage.setOnCloseRequest(event -> { });
+       this.isEnable = false;
+    }
+
+    @Override
+    public boolean isEnable() {
+        return isEnable;
     }
 }
