@@ -24,6 +24,7 @@ public class SimpleTikNoli implements TikNoli {
     private final static String STAT_MSG = "Tick(X) won %s times , Noil(0) won %s times";
     private final static String GREY_BACKGROUND = "-fx-background-color: gray";
     private final static int MAX_FIELDS = 9;
+    private final static AudioClip audioClip = new AudioClip(PATH_TO_SOUND);
 
     private final List<TextField> allFields;
     private final TextField winnersTable;
@@ -43,11 +44,9 @@ public class SimpleTikNoli implements TikNoli {
     }
 
 
-    public void soundEffect() {
-        final AudioClip audioClip = new AudioClip(PATH_TO_SOUND);
+    private void soundEffect() {
         audioClip.play();
     }
-
 
     private void clearCell() {
         allFields.forEach(field -> field.setStyle("-fx-background-color: white"));
@@ -91,16 +90,19 @@ public class SimpleTikNoli implements TikNoli {
     }
 
     private void switchValue() {
-        lastStep = lastStep == MoveType.Tik ? MoveType.Noli :MoveType.Tik;
+        lastStep = lastStep == MoveType.Tik ? MoveType.Noli : MoveType.Tik;
     }
 
     private void addAllListeners() {
         for (TextField textField : allFields) {
             textField.setOnMouseClicked(event -> {
-                textField.setStyle(GREY_BACKGROUND);
+
                 if (!textField.getText().isEmpty()) {
                     return;
                 }
+
+                textField.setStyle(GREY_BACKGROUND);
+                soundEffect();
                 textField.setText(lastStep.getValue());
                 switchValue();
 
@@ -135,7 +137,6 @@ public class SimpleTikNoli implements TikNoli {
 
 
     private boolean hasAction() {
-        soundEffect();
         if (allFields.size() >= 5) {
             final List<TextField> emptyCells = getEmptyTextFields();
 
@@ -156,8 +157,8 @@ public class SimpleTikNoli implements TikNoli {
 
     private List<TextField> getEmptyTextFields() {
         return allFields
-                        .stream()
-                        .filter(text -> text.getText().isEmpty())
-                        .collect(Collectors.toList());
+                .stream()
+                .filter(text -> text.getText().isEmpty())
+                .collect(Collectors.toList());
     }
 }
