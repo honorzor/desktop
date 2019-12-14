@@ -2,7 +2,7 @@ package com.tic.noli.game.managaer;
 
 import com.tic.noli.game.cache.StageCache;
 import com.tic.noli.game.enums.ViewPath;
-import com.tic.noli.game.util.ListenerUtil;
+import com.tic.noli.game.listeners.ExitListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,6 +35,11 @@ public class ViewManager {
             stageFromCache.show();
             return;
         }
+        getNewStage(viewPath, stage).show();
+    }
+
+
+    private Stage getNewStage(ViewPath viewPath, Stage stage) {
         try {
             final Parent root = FXMLLoader.load(getClass().getResource(viewPath.getPath()));
             final Scene scene = new Scene(root, DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -42,9 +47,11 @@ public class ViewManager {
             stage.setScene(scene);
             stage.show();
             stageCache.put(viewPath, stage);
-            ListenerUtil.exitListener(stage);
+            new ExitListener(stage)
+                    .start();
+            return stage;
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("global error " + e.getMessage());
         }
     }
 
