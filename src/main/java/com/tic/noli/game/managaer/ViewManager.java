@@ -62,11 +62,11 @@ public class ViewManager {
         showWithStage(path, stage);
     }
 
-    private void closeOtherStages(ViewPath viewPath) {
+    private void closeOtherStages(ViewPath opening) {
         lastStages
                 .entrySet()
                 .stream()
-                .filter(viewPathStageEntry -> viewPathStageEntry.getKey() != viewPath)
+                .filter(viewPathStageEntry -> viewPathStageEntry.getKey() != opening)
                 .forEach(viewPathStageEntry -> viewPathStageEntry.getValue().close());
     }
 
