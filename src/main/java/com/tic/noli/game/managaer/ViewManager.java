@@ -16,12 +16,10 @@ public class ViewManager {
 
     private Stage lastStage = null;
 
-    public static ViewManager getInstance() {
+    public synchronized static ViewManager getInstance() {
         if (viewManager == null) {
-            synchronized (ViewManager.class) {
-                viewManager = new ViewManager();
-                return viewManager;
-            }
+            viewManager = new ViewManager();
+            return viewManager;
         }
         return viewManager;
     }
