@@ -1,5 +1,6 @@
 package com.tic.noli.game.managaer;
 
+import com.tic.noli.game.cache.StageCache;
 import com.tic.noli.game.enums.ViewPath;
 import com.tic.noli.game.util.ListenerUtil;
 import javafx.fxml.FXMLLoader;
@@ -8,15 +9,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class ViewManager {
     private static ViewManager viewManager = null;
     private final static String TITTLE_NAME = "Tic-Noil";
     private final static int DEFAULT_WIDTH = 800;
     private final static int DEFAULT_HEIGHT = 400;
-    private final static Map<ViewPath, Stage> lastStages = new LinkedHashMap<>();
+    private final StageCache stageCache = new StageCache();
+
 
     private ViewManager() {
     }
@@ -41,7 +41,7 @@ public class ViewManager {
             stage.setTitle(TITTLE_NAME);
             stage.setScene(scene);
             stage.show();
-            lastStages.put(viewPath, stage);
+            stageCache.put(viewPath, stage);
             ListenerUtil.exitListener(stage);
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,14 +63,10 @@ public class ViewManager {
     }
 
     private void closeOtherStages(ViewPath opening) {
-        lastStages
-                .entrySet()
-                .stream()
-                .filter(viewPathStageEntry -> viewPathStageEntry.getKey() != opening)
-                .forEach(viewPathStageEntry -> viewPathStageEntry.getValue().close());
+        stageCache.closeOtherStages(opening);
     }
 
     private Stage checkInCache(ViewPath viewPath) {
-        return lastStages.get(viewPath);
+        return stageCache.get(viewPath);
     }
 }
