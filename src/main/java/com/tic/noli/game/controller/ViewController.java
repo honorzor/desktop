@@ -13,7 +13,7 @@ public class ViewController {
     public void initialize() {
         buttonSimpleGame.setOnMouseClicked(event -> ViewManager
                 .getInstance()
-                .showAndLastClose(ViewPath.GAME_PATH.getPath()));
+                .showAndLastClose(ViewPath.GAME_PATH));
     }
 
 }

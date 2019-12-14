@@ -61,7 +61,7 @@ public class GameSimpleController {
 
     private void backListener(){
         back.setOnMouseClicked(event -> {
-            ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH.getPath());
+            ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH);
         });
     }
 }
