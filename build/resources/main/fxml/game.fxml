@@ -17,8 +17,9 @@
             <TextField fx:id="textField4" alignment="CENTER" editable="false" layoutX="8.0" layoutY="202.0" prefHeight="60.0" prefWidth="123.0" />
             <TextField fx:id="textField2" alignment="CENTER" editable="false" layoutX="136.0" layoutY="125.0" prefHeight="60.0" prefWidth="123.0" />
             <TextField fx:id="winnersTable" alignment="CENTER" editable="false" layoutX="25.0" layoutY="56.0" prefHeight="27.0" prefWidth="350.0" />
-            <Button fx:id="resetStat" alignment="CENTER"  layoutX="130.0" layoutY="91.0" onMousePressed="#setResetStat" prefHeight="26.0" prefWidth="141.0" text="reset statistics" />
-            <Button fx:id="back" layoutX="335.0" layoutY="14.0" prefHeight="0.0" prefWidth="46.0" text="back" />
+            <Button fx:id="resetStat" alignment="CENTER" layoutX="130.0" layoutY="91.0" onMousePressed="#setResetStat" prefHeight="26.0" prefWidth="141.0" text="reset statistics" />
+            <Button fx:id="back" layoutX="258.0" layoutY="14.0" prefHeight="26.0" prefWidth="123.0" text="Back to menu" />
+            <Button layoutX="12.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Start new game" onMousePressed="#startNewGame" />
          </children>
       </Pane>
    </children>
