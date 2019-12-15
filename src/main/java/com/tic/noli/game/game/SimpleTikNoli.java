@@ -49,16 +49,15 @@ public class SimpleTikNoli implements TikNoli {
         audioClip.play();
     }
 
-    private void clearCell() {
-        allFields.forEach(field -> field.setStyle("-fx-background-color: white"));
-    }
-
-
     @Override
     public void resetStat() {
         countTick = 0;
         countNoil = 0;
         appendToWinnersTable(format(STAT_MSG, countNoil, countNoil));
+    }
+
+    @Override
+    public void startNewGame() {
     }
 
     private void tableStat() {
@@ -87,6 +86,7 @@ public class SimpleTikNoli implements TikNoli {
 
     @Override
     public void clear() {
+        allFields.forEach(field -> field.setStyle("-fx-background-color: white"));
         allFields.forEach(text -> text.setText(EMPTY_CELL));
     }
 
@@ -104,7 +104,7 @@ public class SimpleTikNoli implements TikNoli {
                     }
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
                     tableStat();
-                    clearCell();
+                    clear();
                     switchValue();
                 }
 
@@ -117,19 +117,18 @@ public class SimpleTikNoli implements TikNoli {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
                     tableStat();
-                    clearCell();
+                    clear();
                     switchValue();
                 }
                 if (!hasAction()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, DRAW_MSG);
                     tableStat();
-                    clearCell();
+                    clear();
                 }
 
                 if (allFieldsIsNotEmpty()) {
                     clear();
-                    clearCell();
                 }
             });
         }
