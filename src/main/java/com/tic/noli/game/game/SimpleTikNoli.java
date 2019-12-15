@@ -4,6 +4,7 @@ import com.tic.noli.game.enums.MoveType;
 import com.tic.noli.game.util.AlertUtil;
 import com.tic.noli.game.service.Checker;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.media.AudioClip;
 
@@ -15,9 +16,9 @@ import static java.lang.String.format;
 
 public class SimpleTikNoli implements TikNoli {
 
-    private final static MoveType TIC = MoveType.Tik;
-    private final static MoveType NOLI = MoveType.Noli;
-    private final static String EMPTY_CELL = "";
+    protected final static MoveType TIC = MoveType.Tik;
+    protected final static MoveType NOLI = MoveType.Noli;
+    protected final static String EMPTY_CELL = "";
     private final static String VICTORY_MSG = "Победа!";
     private final static String PATH_TO_SOUND = "file:src/main/resources/sound/eff.mp3";
     private final static String DRAW_MSG = "Ничья, ходов не осталось!";
@@ -28,7 +29,7 @@ public class SimpleTikNoli implements TikNoli {
 
     private final List<TextField> allFields;
     private final TextField winnersTable;
-    private final TextField resetStat;
+    private final Button resetStat;
     private final Checker checker;
     private int countTick = 0;
     private int countNoil = 0;
@@ -36,7 +37,7 @@ public class SimpleTikNoli implements TikNoli {
     private MoveType lastStep = MoveType.Tik;
 
 
-    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, TextField resetStat, Checker checker) {
+    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, Button resetStat, Checker checker) {
         this.allFields = allFields;
         this.winnersTable = winnersTable;
         this.resetStat = resetStat;
@@ -134,7 +135,7 @@ public class SimpleTikNoli implements TikNoli {
         }
     }
 
-    private boolean allFieldsIsNotEmpty() {
+    protected boolean allFieldsIsNotEmpty() {
         return allFields
                 .stream()
                 .filter(text -> !text.getText().isEmpty())
@@ -142,7 +143,7 @@ public class SimpleTikNoli implements TikNoli {
     }
 
 
-    private boolean hasAction() {
+    protected boolean hasAction() {
         if (allFields.size() >= 5) {
             final List<TextField> emptyCells = getEmptyTextFields();
 
@@ -161,10 +162,18 @@ public class SimpleTikNoli implements TikNoli {
         return false;
     }
 
-    private List<TextField> getEmptyTextFields() {
+    protected List<TextField> getEmptyTextFields() {
         return allFields
                 .stream()
                 .filter(text -> text.getText().isEmpty())
                 .collect(Collectors.toList());
+    }
+
+    protected Checker getChecker(){
+        return this.checker;
+    }
+
+    protected List<TextField> getAllFields(){
+        return this.allFields;
     }
 }

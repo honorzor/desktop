@@ -38,7 +38,7 @@ public class GameSimpleController {
     private TextField winnersTable;
 
     @FXML
-    private TextField resetStat;
+    private Button resetStat;
 
     @FXML
     private Button back;
