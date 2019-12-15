@@ -56,6 +56,8 @@ public class GameFourthController {
 
     @FXML
     private Button resetStat;
+    @FXML
+    private Button startNewGame;
 
     private TikNoli tikNoli;
 
@@ -64,16 +66,16 @@ public class GameFourthController {
                 textField1, textField2, textField3,
                 textField4, textField5, textField6,
                 textField7, textField8, textField9,
-                textField10,textField11,textField12,
-                textField13, textField14,textField15, textField16);
+                textField10, textField11, textField12,
+                textField13, textField14, textField15, textField16);
 
         final Checker checker = new CheckerService(new FourthCombination(allFields));
         backListener();
-        this.tikNoli = new FourTikNoil(allFields, winnersTable, resetStat, checker);
+        this.tikNoli = new FourTikNoil(allFields, winnersTable, resetStat, startNewGame, checker);
         this.tikNoli.start();
     }
 
-    public void startNewGame (){
+    public void startNewGame() {
         tikNoli.clear();
         tikNoli.start();
     }
@@ -82,11 +84,10 @@ public class GameFourthController {
         tikNoli.resetStat();
     }
 
-    private void backListener(){
+    private void backListener() {
         new ChangeStageListener(back, ViewPath.VIEW_PATH)
                 .start();
     }
-
 
 
 }

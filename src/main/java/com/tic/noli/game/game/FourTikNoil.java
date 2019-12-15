@@ -5,15 +5,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
-
 import java.util.List;
 
 public class FourTikNoil extends SimpleTikNoli {
 
     private final static int MAX_FIELDS = 16;
 
-    public FourTikNoil(List<TextField> allFields, TextField winnersTable, Button resetStat, Checker checker) {
-        super(allFields, winnersTable, resetStat, checker);
+    public FourTikNoil(List<TextField> allFields, TextField winnersTable, Button resetStat, Button startNewGame, Checker checker) {
+        super(allFields, winnersTable, resetStat, startNewGame, checker);
     }
 
 

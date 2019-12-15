@@ -30,6 +30,7 @@ public class SimpleTikNoli implements TikNoli {
     private final List<TextField> allFields;
     private final TextField winnersTable;
     private final Button resetStat;
+    private final Button startNewGame;
     private final Checker checker;
     private int countTick = 0;
     private int countNoil = 0;
@@ -37,10 +38,11 @@ public class SimpleTikNoli implements TikNoli {
     private MoveType lastStep = MoveType.Tik;
 
 
-    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, Button resetStat, Checker checker) {
+    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, Button resetStat, Button startNewGame, Checker checker) {
         this.allFields = allFields;
         this.winnersTable = winnersTable;
         this.resetStat = resetStat;
+        this.startNewGame = startNewGame;
         this.checker = checker;
     }
 
@@ -58,6 +60,8 @@ public class SimpleTikNoli implements TikNoli {
 
     @Override
     public void startNewGame() {
+        clear();
+        start();
     }
 
     private void tableStat() {
@@ -168,11 +172,11 @@ public class SimpleTikNoli implements TikNoli {
                 .collect(Collectors.toList());
     }
 
-    protected Checker getChecker(){
+    protected Checker getChecker() {
         return this.checker;
     }
 
-    protected List<TextField> getAllFields(){
+    protected List<TextField> getAllFields() {
         return this.allFields;
     }
 }
