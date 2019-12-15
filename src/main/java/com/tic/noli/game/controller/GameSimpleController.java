@@ -5,7 +5,8 @@ import com.tic.noli.game.game.SimpleTikNoli;
 import com.tic.noli.game.game.TikNoli;
 import com.tic.noli.game.listeners.ChangeStageListener;
 import com.tic.noli.game.service.Checker;
-import com.tic.noli.game.service.SimpleCheckerService;
+import com.tic.noli.game.service.CheckerService;
+import com.tic.noli.game.combination.SimpleCombination;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -49,7 +50,7 @@ public class GameSimpleController {
                 textField4, textField5, textField6,
                 textField7, textField8, textField9);
 
-        final Checker checker = new SimpleCheckerService(allFields);
+        final Checker checker = new CheckerService(new SimpleCombination(allFields));
         backListener();
         this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat, checker);
         this.tikNoli.start();
