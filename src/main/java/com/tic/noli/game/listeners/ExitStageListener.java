@@ -5,14 +5,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-public class StageExitListener implements Listener {
+public class ExitStageListener implements Listener {
 
     private final String message = "Are you sure that you want to exit?";
     private final Stage stage;
     private boolean isEnable = true;
 
 
-    public StageExitListener(Stage stage) {
+    public ExitStageListener(Stage stage) {
         this.stage = stage;
     }
 

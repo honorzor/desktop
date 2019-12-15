@@ -3,7 +3,7 @@ package com.tic.noli.game.controller;
 import com.tic.noli.game.enums.ViewPath;
 import com.tic.noli.game.game.SimpleTikNoli;
 import com.tic.noli.game.game.TikNoli;
-import com.tic.noli.game.managaer.ViewManager;
+import com.tic.noli.game.listeners.ChangeStageListener;
 import com.tic.noli.game.service.Checker;
 import com.tic.noli.game.service.SimpleCheckerService;
 import javafx.fxml.FXML;
@@ -60,8 +60,7 @@ public class GameSimpleController {
     }
 
     private void backListener(){
-        back.setOnMouseClicked(event -> {
-            ViewManager.getInstance().showAndLastClose(ViewPath.VIEW_PATH);
-        });
+       new ChangeStageListener(back, ViewPath.VIEW_PATH)
+               .start();
     }
 }
