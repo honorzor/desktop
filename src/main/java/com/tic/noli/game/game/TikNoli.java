@@ -4,4 +4,5 @@ public interface TikNoli {
     void start();
     void clear();
     void resetStat();
+    void startNewGame();
 }

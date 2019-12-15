@@ -43,6 +43,9 @@ public class GameSimpleController {
     @FXML
     private Button back;
 
+    @FXML
+    private Button startNewGame;
+
     private TikNoli tikNoli;
 
     public void initialize() {
@@ -52,16 +55,21 @@ public class GameSimpleController {
 
         final Checker checker = new CheckerService(new SimpleCombination(allFields));
         backListener();
-        this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat, checker);
+        this.tikNoli = new SimpleTikNoli(allFields, winnersTable, resetStat, startNewGame, checker);
         this.tikNoli.start();
+    }
+
+    public void startNewGame() {
+        tikNoli.clear();
+        tikNoli.start();
     }
 
     public void setResetStat() {
         tikNoli.resetStat();
     }
 
-    private void backListener(){
-       new ChangeStageListener(back, ViewPath.VIEW_PATH)
-               .start();
+    private void backListener() {
+        new ChangeStageListener(back, ViewPath.VIEW_PATH)
+                .start();
     }
 }

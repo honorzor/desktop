@@ -30,6 +30,7 @@ public class SimpleTikNoli implements TikNoli {
     private final List<TextField> allFields;
     private final TextField winnersTable;
     private final Button resetStat;
+    private final Button startNewGame;
     private final Checker checker;
     private int countTick = 0;
     private int countNoil = 0;
@@ -37,10 +38,11 @@ public class SimpleTikNoli implements TikNoli {
     private MoveType lastStep = MoveType.Tik;
 
 
-    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, Button resetStat, Checker checker) {
+    public SimpleTikNoli(List<TextField> allFields, TextField winnersTable, Button resetStat, Button startNewGame, Checker checker) {
         this.allFields = allFields;
         this.winnersTable = winnersTable;
         this.resetStat = resetStat;
+        this.startNewGame = startNewGame;
         this.checker = checker;
     }
 
@@ -49,16 +51,17 @@ public class SimpleTikNoli implements TikNoli {
         audioClip.play();
     }
 
-    private void clearCell() {
-        allFields.forEach(field -> field.setStyle("-fx-background-color: white"));
-    }
-
-
     @Override
     public void resetStat() {
         countTick = 0;
         countNoil = 0;
         appendToWinnersTable(format(STAT_MSG, countNoil, countNoil));
+    }
+
+    @Override
+    public void startNewGame() {
+        clear();
+        start();
     }
 
     private void tableStat() {
@@ -87,6 +90,7 @@ public class SimpleTikNoli implements TikNoli {
 
     @Override
     public void clear() {
+        allFields.forEach(field -> field.setStyle("-fx-background-color: white"));
         allFields.forEach(text -> text.setText(EMPTY_CELL));
     }
 
@@ -104,7 +108,7 @@ public class SimpleTikNoli implements TikNoli {
                     }
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
                     tableStat();
-                    clearCell();
+                    clear();
                     switchValue();
                 }
 
@@ -117,19 +121,18 @@ public class SimpleTikNoli implements TikNoli {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, VICTORY_MSG);
                     tableStat();
-                    clearCell();
+                    clear();
                     switchValue();
                 }
                 if (!hasAction()) {
                     clear();
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, DRAW_MSG);
                     tableStat();
-                    clearCell();
+                    clear();
                 }
 
                 if (allFieldsIsNotEmpty()) {
                     clear();
-                    clearCell();
                 }
             });
         }
@@ -169,11 +172,11 @@ public class SimpleTikNoli implements TikNoli {
                 .collect(Collectors.toList());
     }
 
-    protected Checker getChecker(){
+    protected Checker getChecker() {
         return this.checker;
     }
 
-    protected List<TextField> getAllFields(){
+    protected List<TextField> getAllFields() {
         return this.allFields;
     }
 }
