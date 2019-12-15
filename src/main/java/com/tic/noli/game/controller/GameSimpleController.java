@@ -56,6 +56,11 @@ public class GameSimpleController {
         this.tikNoli.start();
     }
 
+    public void startNewGame (){
+        tikNoli.clear();
+        tikNoli.start();
+    }
+
     public void setResetStat() {
         tikNoli.resetStat();
     }
