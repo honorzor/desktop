@@ -13,6 +13,7 @@
     <Pane prefHeight="369.0" prefWidth="395.0">
       <children>
          <Button fx:id="buttonSimpleGame" layoutX="67.0" layoutY="119.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="253.0" text="3x3" />
+          <Button fx:id="buttonFourGame" layoutX="67.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="253.0" text="4x4"/>
       </children>
     </Pane>
 </GridPane>

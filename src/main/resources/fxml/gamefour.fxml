@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tic.noli.game.controller.GameFourthController">
+   <children>
+      <Pane prefHeight="500" prefWidth="800">
+         <children>
+      <TextField fx:id="textField1" alignment="CENTER" editable="false" layoutX="33.0" layoutY="88.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField2" alignment="CENTER" editable="false" layoutX="33.0" layoutY="164.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField3" alignment="CENTER" editable="false" layoutX="33.0" layoutY="232.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField4" alignment="CENTER" editable="false" layoutX="33.0" layoutY="302.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField5" alignment="CENTER" editable="false" layoutX="166.0" layoutY="88.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField6" alignment="CENTER" editable="false" layoutX="166.0" layoutY="164.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField7" alignment="CENTER" editable="false" layoutX="166.0" layoutY="232.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField8" alignment="CENTER" editable="false" layoutX="166.0" layoutY="302.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField9" alignment="CENTER" editable="false" layoutX="299.0" layoutY="88.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField10" alignment="CENTER" editable="false" layoutX="300.0" layoutY="164.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField11" alignment="CENTER" editable="false" layoutX="299.0" layoutY="232.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField12" alignment="CENTER" editable="false" layoutX="300.0" layoutY="302.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField13" alignment="CENTER" editable="false" layoutX="439.0" layoutY="88.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField14" alignment="CENTER" editable="false" layoutX="439.0" layoutY="164.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField15" alignment="CENTER" editable="false" layoutX="439.0" layoutY="232.0" prefHeight="47.0" prefWidth="106.0" />
+      <TextField fx:id="textField16" alignment="CENTER" editable="false" layoutX="439.0" layoutY="302.0" prefHeight="47.0" prefWidth="106.0" />
+            <TextField fx:id="winnersTable" alignment="CENTER" editable="false" layoutX="107.0" layoutY="10.0" prefHeight="27.0" prefWidth="350.0" />
+            <Button fx:id="resetStat" alignment="CENTER" layoutX="211.0" layoutY="49.0" onMousePressed="#setResetStat" prefHeight="26.0" prefWidth="141.0" text="reset statistics" />
+            <Button fx:id="back" layoutX="492.0" layoutY="23.0" prefHeight="26.0" prefWidth="74.0" text="back" />
+         </children>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

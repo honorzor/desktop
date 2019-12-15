@@ -14,7 +14,7 @@ public class ViewManager {
     private static ViewManager viewManager = null;
     private final static String TITTLE_NAME = "Tic-Noil";
     private final static int DEFAULT_WIDTH = 800;
-    private final static int DEFAULT_HEIGHT = 400;
+    private final static int DEFAULT_HEIGHT = 500;
     private final StageCache stageCache = new StageCache();
 
 
