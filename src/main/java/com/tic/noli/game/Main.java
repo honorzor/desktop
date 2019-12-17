@@ -1,5 +1,6 @@
 package com.tic.noli.game;
 
+import com.tic.noli.game.config.DBInit;
 import com.tic.noli.game.enums.ViewPath;
 import com.tic.noli.game.managaer.ViewManager;
 import javafx.application.Application;
@@ -14,6 +15,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        DBInit.init();
         launch(args);
     }
 }

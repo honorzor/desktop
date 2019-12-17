@@ -12,7 +12,7 @@ public class DBConnection {
         try {
             return DriverManager.getConnection(url);
         } catch (SQLException e) {
-            return null;
+            throw new RuntimeException(e.getMessage());
         }
     }
 }
