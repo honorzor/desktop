@@ -10,6 +10,7 @@ repositories {
 dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
     testImplementation 'junit:junit:4.12'
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.28.0'
 }
 
 apply plugin: 'java'
