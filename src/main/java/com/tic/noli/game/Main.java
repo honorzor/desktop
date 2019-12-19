@@ -18,9 +18,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         DBInit.init();
-
-        UserService userService = new UserService();
-        userService.saveUser(User.builder().name("Oleg").role("Admin").email("asdasd@mail.ru").password("asdasdad").build());
         launch(args);
     }
 }

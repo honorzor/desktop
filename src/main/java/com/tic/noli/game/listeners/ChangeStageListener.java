@@ -11,7 +11,7 @@ public class ChangeStageListener implements Listener {
     private final Node node;
     private final ViewPath viewPath;
 
-    public ChangeStageListener(Button node, ViewPath viewPath) {
+    public ChangeStageListener(Node node, ViewPath viewPath) {
         this.node = node;
         this.viewPath = viewPath;
     }
