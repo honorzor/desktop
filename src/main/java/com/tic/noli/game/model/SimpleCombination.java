@@ -1,4 +1,4 @@
-package com.tic.noli.game.combination;
+package com.tic.noli.game.model;
 
 import com.tic.noli.game.enums.CombinationType;
 import javafx.scene.control.TextField;

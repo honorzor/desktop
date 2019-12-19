@@ -1,4 +1,4 @@
-package com.tic.noli.game.combination;
+package com.tic.noli.game.model;
 
 import com.tic.noli.game.enums.CombinationType;
 import javafx.scene.control.TextField;
@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FourthCombination implements CombinationList {
+
     private final List<List<TextField>> combinations;
 
     private final static int CELLS_SIZE = CombinationType.FOURTH_COMBINATION.getSize();

@@ -5,7 +5,7 @@ import com.tic.noli.game.game.FourTikNoil;
 import com.tic.noli.game.game.TikNoli;
 import com.tic.noli.game.listeners.ChangeStageListener;
 import com.tic.noli.game.service.Checker;
-import com.tic.noli.game.combination.FourthCombination;
+import com.tic.noli.game.model.FourthCombination;
 import com.tic.noli.game.service.CheckerService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

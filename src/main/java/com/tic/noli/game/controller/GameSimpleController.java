@@ -6,7 +6,7 @@ import com.tic.noli.game.game.TikNoli;
 import com.tic.noli.game.listeners.ChangeStageListener;
 import com.tic.noli.game.service.Checker;
 import com.tic.noli.game.service.CheckerService;
-import com.tic.noli.game.combination.SimpleCombination;
+import com.tic.noli.game.model.SimpleCombination;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

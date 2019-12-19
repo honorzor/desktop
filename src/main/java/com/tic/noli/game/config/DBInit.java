@@ -30,24 +30,29 @@ public class DBInit {
     }
 
 
-    private static void initUserTable(Connection connection) throws SQLException {
-        final Statement statement = connection.createStatement();
+    private static void initUserTable(Connection connection) {
 
         splitQueries(CREATE_TABLE_USERS_QUERY).forEach(query -> {
-            try {
-                statement.execute(query);
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            execute(connection, query);
         });
+    }
+
+
+    private static void execute(Connection connection, String query) {
+        try {
+            final Statement statement = connection.createStatement();
+            statement.execute(query);
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
     private static List<String> splitQueries(String queries) {
         return Arrays
                 .stream(queries.trim().split(";"))
-                .map(query -> query = query + ";")
+                .peek(query -> query = query + ";")
                 .collect(Collectors.toList());
     }
 }

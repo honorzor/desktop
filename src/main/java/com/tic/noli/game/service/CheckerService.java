@@ -1,6 +1,6 @@
 package com.tic.noli.game.service;
 
-import com.tic.noli.game.combination.CombinationList;
+import com.tic.noli.game.model.CombinationList;
 import com.tic.noli.game.enums.MoveType;
 import javafx.scene.control.TextField;
 
