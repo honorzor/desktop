@@ -5,6 +5,9 @@ import com.tic.noli.game.util.FileUtil;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DBInit {
 
@@ -29,7 +32,22 @@ public class DBInit {
 
     private static void initUserTable(Connection connection) throws SQLException {
         final Statement statement = connection.createStatement();
-        statement.execute(CREATE_TABLE_USERS_QUERY);
-        statement.close();
+
+        splitQueries(CREATE_TABLE_USERS_QUERY).forEach(query -> {
+            try {
+                statement.execute(query);
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+
+    private static List<String> splitQueries(String queries) {
+        return Arrays
+                .stream(queries.trim().split(";"))
+                .map(query -> query = query + ";")
+                .collect(Collectors.toList());
     }
 }

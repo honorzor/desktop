@@ -11,6 +11,8 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
     testImplementation 'junit:junit:4.12'
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.28.0'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.29'
+    compileOnly 'org.projectlombok:lombok:1.18.10'
 }
 
 apply plugin: 'java'
