@@ -22,13 +22,7 @@ public class AccessController {
 
 
     public void initialize() {
-        new RegisterListener(regButton, User
-                .builder()
-                .name(nickName.getText())
-                .email(email.getText())
-                .password(password.getText())
-                .role("USER")
-                .build())
+        new RegisterListener(regButton, nickName, password, email)
                 .start();
     }
 
