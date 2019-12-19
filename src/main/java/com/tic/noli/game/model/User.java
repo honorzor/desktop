@@ -7,6 +7,7 @@ import lombok.*;
 @Builder
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class User {
     private Integer id;
