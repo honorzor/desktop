@@ -25,7 +25,7 @@ public class RegisterListener implements Listener {
     public void start() {
 
         node.setOnMouseClicked(event -> {
-            if (user.getName().isEmpty() || user.getPassword().isEmpty() || user.getEmail().isEmpty() || user.getRole().isEmpty()) {
+            if (user.getName().isEmpty() || user.getPassword().isEmpty() || user.getEmail().isEmpty()) {
                 AlertUtil.showAlert(Alert.AlertType.INFORMATION, "You must write all fields");
                 throw new RuntimeException("");
             }
