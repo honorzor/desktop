@@ -16,8 +16,8 @@ public class ViewController {
 
     public void initialize() {
         new ChangeStageListener(buttonSimpleGame, ViewPath.GAME_PATH).start();
-        new ChangeStageListener(buttonFourGame,ViewPath.GAME_PATHFOUR).start();
-        new ChangeStageListener(registration,ViewPath.REGISTRATION_PATH).start();
+        new ChangeStageListener(buttonFourGame, ViewPath.GAME_PATHFOUR).start();
+        new ChangeStageListener(registration, ViewPath.REGISTRATION_PATH).start();
     }
 
 }

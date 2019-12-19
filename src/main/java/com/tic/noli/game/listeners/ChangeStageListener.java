@@ -3,7 +3,6 @@ package com.tic.noli.game.listeners;
 import com.tic.noli.game.enums.ViewPath;
 import com.tic.noli.game.managaer.ViewManager;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 
 public class ChangeStageListener implements Listener {
 

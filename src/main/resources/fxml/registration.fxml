@@ -15,7 +15,7 @@
          <TextField fx:id="nickName" alignment="CENTER" layoutX="14.0" layoutY="110.0" promptText="Nickname" />
          <TextField fx:id="password" alignment="CENTER" layoutX="210.0" layoutY="110.0" promptText="Password" />
          <TextField fx:id="email" alignment="CENTER" layoutX="112.0" layoutY="159.0" promptText="Email" />
-         <Button fx:id="registration2" layoutX="131.0" layoutY="231.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="Register" />
+         <Button fx:id="regButton" layoutX="131.0" layoutY="231.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="Register" />
       </children>
     </Pane>
 </GridPane>
