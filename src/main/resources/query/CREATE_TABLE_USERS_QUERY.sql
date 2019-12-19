@@ -2,7 +2,7 @@ create table if not exists users
 (
     id       INTEGER primary key autoincrement         NOT NULL,
     name     varchar(200) unique                       NOT NULL,
-    password varchar(200) check (length(password > 8)) NOT NULL,
+    password varchar(200) check (length(password) > 8) NOT NULL,
     email    varchar(200) unique                       NOT NULL
 );
 
