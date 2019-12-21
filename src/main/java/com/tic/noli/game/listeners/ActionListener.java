@@ -20,7 +20,11 @@ public class ActionListener implements Listener {
 
     @Override
     public void start() {
-       menuItem.setOnAction(event -> AlertUtil.showAlert(Alert.AlertType.INFORMATION,"SMN & HNR"));
+        menuItem.setOnAction(event -> {
+            if (isEnable) {
+                AlertUtil.showAlert(Alert.AlertType.INFORMATION, "SMN & HNR");
+            }
+        });
     }
 
     @Override
@@ -30,6 +34,6 @@ public class ActionListener implements Listener {
 
     @Override
     public boolean isEnable() {
-        return false;
+        return isEnable;
     }
 }
