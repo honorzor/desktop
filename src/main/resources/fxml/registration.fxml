@@ -16,6 +16,8 @@
          <TextField fx:id="password" alignment="CENTER" layoutX="210.0" layoutY="110.0" promptText="Password" />
          <TextField fx:id="email" alignment="CENTER" layoutX="112.0" layoutY="159.0" promptText="Email" />
          <Button fx:id="regButton" layoutX="131.0" layoutY="231.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="Register" />
+         <Button fx:id="back" layoutX="262.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Back to menu" />
+
       </children>
     </Pane>
 </GridPane>
