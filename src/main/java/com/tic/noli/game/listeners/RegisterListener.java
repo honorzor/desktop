@@ -35,7 +35,7 @@ public class RegisterListener implements Listener {
             if (isEnable) {
                 if (nickName.getText().isEmpty() || password.getText().isEmpty() || email.getText().isEmpty()) {
                     AlertUtil.showAlert(Alert.AlertType.INFORMATION, "You must write all fields");
-                    throw new RuntimeException("");
+                    return;
                 }
                 try {
                     final User user = User.builder()
