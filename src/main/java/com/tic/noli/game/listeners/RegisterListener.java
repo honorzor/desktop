@@ -38,16 +38,20 @@ public class RegisterListener implements Listener {
                     throw new RuntimeException("");
                 }
                 try {
-                    userService.saveUser(User
-                            .builder()
+                    final User user = User.builder()
                             .name(nickName.getText())
                             .password(password.getText())
                             .email(email.getText())
                             .role("USER")
-                            .build());
+                            .build();
+
+                    userService.saveUser(user);
+
+                    AlertUtil.showAlert(Alert.AlertType.INFORMATION, "Success registration, your name is: " + user.getName());
                 } catch (SQLException e) {
                     AlertUtil.showAlert(Alert.AlertType.WARNING, e.getMessage());
                 }
+
             }
         });
     }
