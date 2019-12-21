@@ -4,21 +4,21 @@ package com.tic.noli.game.listeners;
 import com.tic.noli.game.model.User;
 import com.tic.noli.game.service.UserService;
 import com.tic.noli.game.util.AlertUtil;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
-import javax.xml.soap.Text;
+import java.sql.SQLException;
 
 public class RegisterListener implements Listener {
+
     private final Node node;
     private final TextField nickName;
     private final TextField password;
     private final TextField email;
     private final UserService userService = new UserService();
+
+    private boolean isEnable = true;
 
 
     public RegisterListener(Node node, TextField nickName, TextField password, TextField email) {
@@ -31,25 +31,30 @@ public class RegisterListener implements Listener {
 
     @Override
     public void start() {
-
         node.setOnMouseClicked(event -> {
-            if (nickName.getText().isEmpty() || password.getText().isEmpty() || email.getText().isEmpty()) {
-                AlertUtil.showAlert(Alert.AlertType.INFORMATION, "You must write all fields");
-                throw new RuntimeException("");
+            if (isEnable) {
+                if (nickName.getText().isEmpty() || password.getText().isEmpty() || email.getText().isEmpty()) {
+                    AlertUtil.showAlert(Alert.AlertType.INFORMATION, "You must write all fields");
+                    throw new RuntimeException("");
+                }
+                try {
+                    userService.saveUser(User
+                            .builder()
+                            .name(nickName.getText())
+                            .password(password.getText())
+                            .email(email.getText())
+                            .role("USER")
+                            .build());
+                } catch (SQLException e) {
+                    AlertUtil.showAlert(Alert.AlertType.WARNING, e.getMessage());
+                }
             }
-            userService.saveUser(User
-                    .builder()
-                    .name(nickName.getText())
-                    .password(password.getText())
-                    .email(email.getText())
-                    .role("USER")
-                    .build());
         });
     }
 
     @Override
     public void stop() {
-
+        isEnable = false;
     }
 
     @Override

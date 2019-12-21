@@ -1,4 +1,4 @@
-package com.tic.noli.game.managaer;
+package com.tic.noli.game.manager;
 
 import com.tic.noli.game.cache.StageCache;
 import com.tic.noli.game.enums.ViewPath;

@@ -3,7 +3,10 @@ package com.tic.noli.game.repository;
 import com.tic.noli.game.config.DBConnection;
 import com.tic.noli.game.model.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserRepository {
 
@@ -11,9 +14,9 @@ public class UserRepository {
     private final static String SAVE_USER_ROLE_QUERY = "insert into roles values (?, ?)";
     private final static String GET_USER_BY_NAME_QUERY = "select * from users where name = ?";
 
-    public int saveUser(User user) {
+    public int saveUser(User user)  throws SQLException{
         final Connection connection = DBConnection.getConnection();
-        try {
+
             final PreparedStatement statement = connection.prepareStatement(SAVE_USER_QUERY);
             statement.setString(1, user.getName());
             statement.setString(2, user.getPassword());
@@ -27,10 +30,7 @@ public class UserRepository {
             }
 
             return i;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
+
     }
 
 

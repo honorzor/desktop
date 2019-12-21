@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class DBInit {
 
-    private final static String CREATE_TABLE_USERS_QUERY = FileUtil.readStringFromFile("/query/CREATE_TABLE_USERS_QUERY.sql");
+    private final static String CREATE_TABLE_USERS_QUERY = FileUtil.readStringFromFile("/query/CREATE_TABLES_QUERY.sql");
 
 
     public static void init() {

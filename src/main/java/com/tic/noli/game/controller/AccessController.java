@@ -1,10 +1,7 @@
 package com.tic.noli.game.controller;
 
 import com.tic.noli.game.listeners.RegisterListener;
-import com.tic.noli.game.model.User;
-import com.tic.noli.game.util.AlertUtil;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -25,6 +22,5 @@ public class AccessController {
         new RegisterListener(regButton, nickName, password, email)
                 .start();
     }
-
 
 }

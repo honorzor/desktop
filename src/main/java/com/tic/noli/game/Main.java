@@ -2,9 +2,7 @@ package com.tic.noli.game;
 
 import com.tic.noli.game.config.DBInit;
 import com.tic.noli.game.enums.ViewPath;
-import com.tic.noli.game.managaer.ViewManager;
-import com.tic.noli.game.model.User;
-import com.tic.noli.game.service.UserService;
+import com.tic.noli.game.manager.ViewManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
